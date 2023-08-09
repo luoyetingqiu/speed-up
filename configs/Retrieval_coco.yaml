@@ -1,0 +1,39 @@
+train_file:  ['/data1/wjy/speed-up/data/f30k/flickr30k.train.json']
+val_file: '/data1/wjy/speed-up/data/f30k/flickr30k.val.json'
+test_file: '/data1/wjy/speed-up/data/f30k/flickr30k.test.json'
+split_file: '/data1/wjy/speed-up/data/f30k/dataset_flickr30k.json'
+image_root: '/data1/wjy/speed-up/data/f30k/flickr30k-images'
+
+img2text_file: '/data1/wjy/speed-up/data/multi-label/screen_set/pos_n/flickr_i2t_screen_set_imgk15_textk3.json'
+text2img_file: '/data1/wjy/speed-up/data/multi-label/screen_set/pos_n/flickr_t2i_screen_set_imgk15_textk3.json'
+
+bert_config: '/data1/wjy/speed-up/ALBEF-speedup/ALBEF_97/configs/config_bert.json'
+
+method: 'ann'
+
+ann:
+  M: 16
+  nbits: 8
+  nlists: 128
+  alg: IndexPQ
+
+image_res: 384
+batch_size_train: 32
+batch_size_test: 64
+
+batch_size_cal: 500
+
+queue_size: 65536
+momentum: 0.995
+vision_width: 768
+embed_dim: 256
+temp: 0.07
+k_test: 128
+
+alpha: 0.4
+distill: True
+warm_up: True
+
+optimizer: {opt: adamW, lr: 1e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-5, epochs: 5, min_lr: 1e-6, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 1, cooldown_epochs: 0}
+
