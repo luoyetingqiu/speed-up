@@ -1,22 +1,18 @@
-train_file:  ['/data1/wjy/speed-up/data/f30k/flickr30k.train.json']
-val_file: '/data1/wjy/speed-up/data/f30k/flickr30k.val.json'
-test_file: '/data1/wjy/speed-up/data/f30k/flickr30k.test.json'
-split_file: '/data1/wjy/speed-up/data/f30k/dataset_flickr30k.json'
-image_root: '/data1/wjy/speed-up/data/f30k/' #flickr30k-images/
+train_file:  ['./flickr30k.train.json']
+val_file: './flickr30k.val.json'
+test_file: './flickr30k.test.json'
+split_file: './dataset_flickr30k.json'
+image_root: './' #flickr30k-images/
 
-#img2text_file: '../ALBEF_cls/screen_set/advanced/flickr_test_i2t_top5_screen.json'
-#text2img_file: '../ALBEF_cls/screen_set/advanced/flickr_test_t2i_top5_screen.json'
-#img2text_file: '../ALBEF_cls/screen_set/pos_n/flickr_i2t_screen_set_imgk15_textk3.json'
-#text2img_file: '../ALBEF_cls/screen_set/pos_n/flickr_t2i_screen_set_imgk15_textk3.json'
-img2text_file: '/data1/wjy/speed-up/data/multi-label/screen_set/pos_n/flickr_i2t_screen_set_imgk15_textk3.json'
-text2img_file: '/data1/wjy/speed-up/data/multi-label/screen_set/pos_n/flickr_t2i_screen_set_imgk15_textk3.json'
-#img2text_file: '../ALBEF_cls/screen_set/vanilla/flickr_i2t_screen_set_imgk15_textk3.json'
-#text2img_file: '../ALBEF_cls/screen_set/pos_nva/flickr_t2i_screen_set_imgk15_textk3.json'
 
-img_feat_save_file: '/data1/wjy/speed-up/data/f30k/embed/albef/flickr_test_image_embeds.pt'
-text_feat_save_file: '/data1/wjy/speed-up/data/f30k/embed/albef/flickr_test_text_embeds.pt'
+img2text_file: './multi-label/screen_set/pos_n/flickr_i2t_screen_set_imgk15_textk3.json'
+text2img_file: './multi-label/screen_set/pos_n/flickr_t2i_screen_set_imgk15_textk3.json'
 
-bert_config: '/data1/wjy/speed-up/ALBEF-speedup/ALBEF_97/configs/config_bert.json'
+
+img_feat_save_file: './embed/albef/flickr_test_image_embeds.pt'
+text_feat_save_file: './embed/albef/flickr_test_text_embeds.pt'
+
+bert_config: './configs/config_bert.json'
 
 method: 'baseline' # baseline ann
 
