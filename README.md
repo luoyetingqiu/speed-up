@@ -26,6 +26,15 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 --checkpoint [Pretrained checkpoint] \
 --evaluate \
 --time_eval</pre> 
+2. Test ann time using 4 3090 GPUs:
+<pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
+--config ./configs/Retrieval_flickr_inv_97.yaml \
+--output_dir ./output/flickr30k \
+--text_encode ./configs/bert-base-uncased \
+--checkpoint [Pretrained checkpoint] \
+--evaluate \
+--ann \
+--time_eval</pre> 
 
 ### Acknowledgement
 
