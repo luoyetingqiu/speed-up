@@ -17,7 +17,7 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 * Download <a href="https://huggingface.co/bert-base-uncased"> bert-base-uncased </a> from huggingface to the configs folder
 
 ### Experiment:
-In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths for the json files and the image path.
+In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths for the json files and the image path 
 1. Test time using 4 3090 GPUs:
 <pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
 --config ./configs/Retrieval_flickr_inv_97.yaml \
@@ -33,8 +33,23 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 --text_encode ./configs/bert-base-uncased \
 --checkpoint [Pretrained checkpoint] \
 --evaluate \
---ann \
 --time_eval</pre> 
+3. Test ++Ours using 4 3090 GPUs:
+<pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
+--config ./configs/Retrieval_flickr_inv_97.yaml \
+--output_dir ./output/flickr30k \
+--text_encode ./configs/bert-base-uncased \
+--checkpoint [Pretrained checkpoint] \
+--evaluate \
+--screen </pre> 
+4. Test ALBEFall and +ALBEF0 using 4 3090 GPUs:
+   ALBEFall: set k_test=all in config   +ALBEF0: set k_test=128 in config
+<pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
+--config ./configs/Retrieval_flickr_inv_97.yaml \
+--output_dir ./output/flickr30k \
+--text_encode ./configs/bert-base-uncased \
+--checkpoint [Pretrained checkpoint] \
+--evaluate</pre> 
 
 ### Acknowledgement
 
