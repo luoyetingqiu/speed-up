@@ -16,7 +16,7 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 
 ### Experiment:
 
-1. Download MSCOCO or Flickr30k datasets from the original websites.
+1. Download <a href="https://cocodataset.org/#download"> MSCOCO </a> or <a href="http://shannon.cs.illinois.edu/DenotationGraph/"> Flickr30k </a>  datasets from the original websites.
 2. Download and extract <a href="https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_test.json"> MSCOCO </a> or <a href="https://storage.googleapis.com/sfr-vision-language-research/datasets/flickr30k_test.json"> Flickr30 </a> dataset json files.
 3. Download <a href="https://huggingface.co/bert-base-uncased"> bert-base-uncased </a> from huggingface to the configs folder
 3. In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths for the json files and the image path.
