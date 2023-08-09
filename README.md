@@ -17,7 +17,7 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 
 ### Experiment:
 In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths for the json files and the image path 
-1. Test time and ann time using 4 3090 GPUs, (time: set method=all in config   ann time: set method=ann in config):
+1. Test time and ann time using 4 3090 GPUs, (time: set method=all in config, ann time: set method=ann in config):
 <pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
 --config ./configs/Retrieval_flickr_inv_97.yaml \
 --output_dir ./output/flickr30k \
