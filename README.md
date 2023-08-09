@@ -9,7 +9,6 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 * timm 0.4.9
 
 ### Download
-
 * <a href="https://storage.googleapis.com/sfr-pcl-data-research/ALBEF/mscoco.pth"> ALBEF checkpoint for retrieval on MSCOCO </a>
 * <a href="https://storage.googleapis.com/sfr-pcl-data-research/ALBEF/flickr30k.pth"> ALBEF checkpoint for retrieval on Flickr30k </a>
 * Download <a href="https://cocodataset.org/#download"> MSCOCO </a> or <a href="http://shannon.cs.illinois.edu/DenotationGraph/"> Flickr30k </a>      datasets from the original websites
@@ -18,7 +17,8 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 
 ### Experiment:
 In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths for the json files and the image path 
-1. Test time using 4 3090 GPUs:
+1. Test time and ann time using 4 3090 GPUs:
+    time: set method=all in config   ann time: set method=ann in config
 <pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
 --config ./configs/Retrieval_flickr_inv_97.yaml \
 --output_dir ./output/flickr30k \
@@ -26,15 +26,8 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 --checkpoint [Pretrained checkpoint] \
 --evaluate \
 --time_eval</pre> 
-2. Test ann time using 4 3090 GPUs:
-<pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
---config ./configs/Retrieval_flickr_inv_97.yaml \
---output_dir ./output/flickr30k \
---text_encode ./configs/bert-base-uncased \
---checkpoint [Pretrained checkpoint] \
---evaluate \
---time_eval</pre> 
-3. Test ++Ours using 4 3090 GPUs:
+
+2. Test ++Ours using 4 3090 GPUs:
 <pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
 --config ./configs/Retrieval_flickr_inv_97.yaml \
 --output_dir ./output/flickr30k \
@@ -42,7 +35,8 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 --checkpoint [Pretrained checkpoint] \
 --evaluate \
 --screen </pre> 
-4. Test ALBEFall and +ALBEF0 using 4 3090 GPUs:
+
+3. Test ALBEFall and +ALBEF0 using 4 3090 GPUs:
    ALBEFall: set k_test=all in config   +ALBEF0: set k_test=128 in config
 <pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
 --config ./configs/Retrieval_flickr_inv_97.yaml \
@@ -52,7 +46,5 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 --evaluate</pre> 
 
 ### Acknowledgement
-
 Our code is extended from the following repositories. We thank the authors for releasing the codes.
-
 * [ALBEF](https://github.com/salesforce/ALBEF)
