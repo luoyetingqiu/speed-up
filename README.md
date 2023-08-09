@@ -35,7 +35,7 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 --evaluate \
 --screen </pre> 
 
-3. Test ALBEFall and +ALBEF0 using 4 3090 GPUs, (ALBEFall: set k_test=all in config, +ALBEF0: set k_test=128 in config):
+3. Test ALBEFall and +ALBEF0 using 4 3090 GPUs, (ALBEF_all: set k_test=all in config, +ALBEF_0: set k_test=128 in config):
 <pre>python -m torch.distributed.run --nproc_per_node=3 Retrieval_inv.py \
 --config ./configs/Retrieval_flickr_inv_97.yaml \
 --output_dir ./output/flickr30k \
