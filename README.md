@@ -13,6 +13,7 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 * <a href="https://storage.googleapis.com/sfr-pcl-data-research/ALBEF/flickr30k.pth"> ALBEF checkpoint for retrieval on Flickr30k </a>
 * Download <a href="https://cocodataset.org/#download"> MSCOCO </a> or <a href="http://shannon.cs.illinois.edu/DenotationGraph/"> Flickr30k </a>      datasets from the original websites
 * Download and extract <a href="https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_test.json"> MSCOCO </a> or <a      href="https://storage.googleapis.com/sfr-vision-language-research/datasets/flickr30k_test.json"> Flickr30k </a> dataset json files
+* Download <a href="https://drive.google.com/drive/folders/1hQmytQZN61chxW9VYRFM2RNUqzNuxUmu?usp=drive_link"> screen </a> json files
 * Download <a href="https://huggingface.co/bert-base-uncased"> bert-base-uncased </a> from huggingface to the configs folder
 
 ### Experiment:
