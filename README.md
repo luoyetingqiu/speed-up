@@ -20,7 +20,7 @@ This repo is the official implementation of "[Efficient Image-Text Retrieval via
 In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths for the json files and the image path 
 1. Test time and ann_time using 4 3090 GPUs  (time: set method="baseline" in config, ann time: set method="ann" in config):
 <pre>python -m torch.distributed.run --nproc_per_node=4 Retrieval_inv.py \
---config ./configs/Retrieval_flickr_inv_97.yaml \
+--config ./configs/Retrieval_flickr.yaml \
 --output_dir ./output/flickr30k \
 --text_encode ./configs/bert-base-uncased \
 --checkpoint [Pretrained checkpoint] \
@@ -29,7 +29,7 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 
 2. Test ++Ours using 4 3090 GPUs  (set screen file paths in config):
 <pre>python -m torch.distributed.run --nproc_per_node=4 Retrieval_inv.py \
---config ./configs/Retrieval_flickr_inv_97.yaml \
+--config ./configs/Retrieval_flickr.yaml \
 --output_dir ./output/flickr30k \
 --text_encode ./configs/bert-base-uncased \
 --checkpoint [Pretrained checkpoint] \
@@ -38,7 +38,7 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 
 3. Test ann_retrieval using 4 3090 GPUs  (set ann in config):
 <pre>python -m torch.distributed.run --nproc_per_node=4 Retrieval_inv.py \
---config ./configs/Retrieval_flickr_inv_97.yaml \
+--config ./configs/Retrieval_flickr.yaml \
 --output_dir ./output/flickr30k \
 --text_encode ./configs/bert-base-uncased \
 --checkpoint [Pretrained checkpoint] \
@@ -47,7 +47,7 @@ In configs/Retrieval_coco.yaml or configs/Retrieval_flickr.yaml, set the paths f
 
 4. Test ALBEF_all and +ALBEF_0 using 4 3090 GPUs  (ALBEF_all: set k_test="all" in config, +ALBEF_0: set k_test=128 in config):
 <pre>python -m torch.distributed.run --nproc_per_node=4 Retrieval_inv.py \
---config ./configs/Retrieval_flickr_inv_97.yaml \
+--config ./configs/Retrieval_flickr.yaml \
 --output_dir ./output/flickr30k \
 --text_encode ./configs/bert-base-uncased \
 --checkpoint [Pretrained checkpoint] \
